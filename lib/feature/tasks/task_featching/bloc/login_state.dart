@@ -5,12 +5,17 @@ sealed class TaskState {}
 
 final class TaskInitialState extends TaskState {}
 
-class SuccessTaskCreationState extends TaskState {
+class SuccessTaskDeletionState extends TaskState {
 
 }
 
-class ErrorState extends TaskState {}
 
+class ErrorState extends TaskState {
+  String message;
+  ErrorState({
+    required this.message,
+  });
+}
 class LoadingState extends TaskState {}
 
 

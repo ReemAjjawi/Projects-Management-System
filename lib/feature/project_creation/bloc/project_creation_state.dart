@@ -9,8 +9,12 @@ class SuccessCreateProjectState extends CreateProjectState {
 
 }
 
-class ErrorState extends CreateProjectState {}
-
+class ErrorState extends CreateProjectState {
+  String message;
+  ErrorState({
+    required this.message,
+  });
+}
 class LoadingState extends CreateProjectState {}
 
 

@@ -9,8 +9,12 @@ class SuccessRegisterState extends RegisterState {
 
 }
 
-class ErrorState extends RegisterState {}
-
+class ErrorState extends RegisterState {
+  String message;
+  ErrorState({
+    required this.message,
+  });
+}
 class LoadingState extends RegisterState {}
 
 

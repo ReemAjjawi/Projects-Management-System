@@ -20,7 +20,7 @@ class CreateProjectBloc extends Bloc<CreateProjectEvent, CreateProjectState> {
           emit((SuccessCreateProjectState()));
           
         } else {
-          emit(ErrorState());
+          emit(ErrorState(message: result.runtimeType.toString()));
         }
       },
     );

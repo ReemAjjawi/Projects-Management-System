@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_managment_state_managment_bloc/feature/login/view/login.dart';
-import 'package:project_managment_state_managment_bloc/feature/register/view/register.dart';
+import 'package:project_managment_state_managment_bloc/feature/auth/login/view/login.dart';
+import 'package:project_managment_state_managment_bloc/feature/auth/register/view/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/config/bloc_observe_config.dart';
 import 'core/config/get_it_config.dart';
+import 'feature/create&join/create&join.dart';
 import 'feature/project_creation/view/project_creation.dart';
 
 void main()async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
    
-      home:  Register(),
+      home:  ProjectCreation(),
     );
   }
 }

@@ -9,7 +9,12 @@ class SuccessLoginState extends LoginState {
 
 }
 
-class ErrorState extends LoginState {}
+class ErrorState extends LoginState {
+  String message;
+  ErrorState({
+    required this.message,
+  });
+}
 
 class LoadingState extends LoginState {}
 

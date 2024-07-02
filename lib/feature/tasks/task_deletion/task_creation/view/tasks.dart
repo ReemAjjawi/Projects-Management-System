@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
-import 'package:project_managment_state_managment_bloc/feature/register/bloc/register_bloc.dart';
-import 'package:project_managment_state_managment_bloc/feature/register/bloc/register_state.dart';
+import 'package:project_managment_state_managment_bloc/feature/auth/register/bloc/register_bloc.dart';
+import 'package:project_managment_state_managment_bloc/feature/auth/register/bloc/register_state.dart';
 
 
 class Tasks extends StatefulWidget {

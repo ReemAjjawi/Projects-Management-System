@@ -9,8 +9,13 @@ class SuccessTaskCreationState extends TaskState {
 
 }
 
-class ErrorState extends TaskState {}
 
+class ErrorState extends TaskState {
+  String message;
+  ErrorState({
+    required this.message,
+  });
+}
 class LoadingState extends TaskState {}
 
 
