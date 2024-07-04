@@ -7,8 +7,21 @@ sealed class TaskEvent {}
 
 
 class CreateTask extends TaskEvent {
-  TaskModel task;
+  List <TaskModel> task;
   CreateTask({
     required this.task,
   });
+}
+
+
+
+class DeleteTask extends TaskEvent {
+  TaskModel task;
+  DeleteTask({
+    required this.task,
+  });
+}
+
+class GetAllTask extends TaskEvent {
+
 }

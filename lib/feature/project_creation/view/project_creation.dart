@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
+import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
 import 'package:project_managment_state_managment_bloc/feature/project_creation/bloc/project_creation_state.dart';
 
 import '../../../main.dart';
@@ -25,6 +26,7 @@ class _ProjectCreationState extends State<ProjectCreation> {
       create: (context) => CreateProjectBloc(),
       child: Builder(builder: (context) {
         return Scaffold(
+          backgroundColor: AppColor.primaryColor,
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(

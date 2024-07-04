@@ -14,6 +14,7 @@ import 'package:project_managment_state_managment_bloc/feature/auth/register/blo
 import '../../../../core/resources/color.dart';
 import '../../../../main.dart';
 import '../../../../utility.dart/container_text_field.dart';
+import '../../../project_creation/view/project_creation.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -60,11 +61,11 @@ class _RegisterState extends State<Register> {
                                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                            children: [
-                                                                                  Spacer(flex: 1,) ,
+                                                                                //  Spacer(flex: 1,) ,
                                                                                    Text(FIRSTNAME),
                                                                                    
                                                                              ContainerTextField(firstName: firstName),                                                                                  Spacer(flex: 1,) ,
-                                                                                  Spacer(flex: 1,) ,
+                                                                                 // Spacer(flex: 1,) ,
 
                                                                                    Text(LASTNAME),
                                                                                          ContainerTextField(firstName: lastName)                                                                                                                                ,  Spacer(flex: 1,) ,
@@ -72,7 +73,7 @@ class _RegisterState extends State<Register> {
                                                                                  Text(EMAIL),
                                                                            
                                                                             ContainerTextField(firstName: email),
-                                                                             Spacer(flex: 1,) ,
+                                                                         //    Spacer(flex: 1,) ,
                                                                                    Text(PASSWORD),
                                                                       ContainerTextField(firstName: password),
                                                                                Row(
@@ -127,45 +128,46 @@ class _RegisterState extends State<Register> {
                      
                          else if (state is ErrorState) {
                       return SizedBox(
-                        height: 300,
-                        child: Column(
-                          children: [
-                          ElevatedButton(onPressed: ()async{
+            //             height: 100,
+            //             child: Column(
+            //               children: [
+            //               ElevatedButton(onPressed: ()async{
                    
-            context.read<RegisterBloc>().add(
+            // context.read<RegisterBloc>().add(
           
-              SignUp(
-                                              user: RegisterModel(
-                                                firstName: firstName.text,
-                                                lastName: lastName.text,
-                                                email: email.text,
-                                                role: 'USER',
-                                                password: password.text,
-                                              ),
-              ),
+            //   SignUp(
+            //                                   user: RegisterModel(
+            //                                     firstName: firstName.text,
+            //                                     lastName: lastName.text,
+            //                                     email: email.text,
+            //                                     role: 'USER',
+            //                                     password: password.text,
+            //                                   ),
+            //   ),
           
-                                            );},          child: Text(SIGNUP)),
+            //                                 );},          child: Text(SIGNUP)),
                                         
-                            Text(
-                              state.message,
-                              style: TextStyle(fontSize: 20, color: Colors.red),
-                            )
-                          ],
-                        ),
-                      );
+            //                 Text(
+            //                   state.message,
+            //                   style: TextStyle(fontSize: 20, color: Colors.red),
+            //                 )
+            //               ],
+            //             ),
+            //      
+                 );
                     } else if (state is SuccessRegisterState) {
                       return Container(
-                        width: 200,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.green),
-                        child: Center(
-                          child: Icon(
-                            Icons.verified,
-                            color: Colors.white,
-                          ),
-                        ),
+                        // width: 200,
+                        // height: 100,
+                        // decoration: BoxDecoration(
+                        //     borderRadius: BorderRadius.circular(20),
+                        //     color: Colors.green),
+                        // child: Center(
+                        //   child: Icon(
+                        //     Icons.verified,
+                        //     color: Colors.white,
+                        //   ),
+                        // ),
                       );
                     } else {
                       return CircularProgressIndicator();
@@ -173,15 +175,19 @@ class _RegisterState extends State<Register> {
                                },
                              ),
                    
-          //                    ],
-          //                  ),
-          //                                 ),
+    
                  
            Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                      children: [
                                        Text(ALREADYHAVEANACCOUNT),
-                                       TextButton(onPressed: (){}, child: Text(LOGIN))
+                                       TextButton(onPressed: (){
+
+   Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectCreation(),),);
+
+
+
+                                       }, child: Text(LOGIN))
                                      ],
                                    ),
                

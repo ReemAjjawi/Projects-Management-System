@@ -2,8 +2,10 @@
 // import '../../../../model/auth/register_model.dart';
 // import '../../../../model/handling/handle_model.dart';
 // import '../../../../service/task_service.dart';
-// import 'login_event.dart';
-// import 'login_state.dart';
+// import '../../task_field/bloc/tasks_event.dart';
+// import '../../task_field/bloc/tasks_state.dart';
+// import 'tasks_event.dart';
+// import 'tasks_state.dart';
 
 
 // class TaskBloc extends Bloc<TaskEvent, TaskState> {
@@ -20,7 +22,7 @@
 //           emit((SuccessTaskCreationState()));
           
 //         } else {
-//           emit(ErrorState());
+//           emit(ErrorState(message: ''));
 //         }
 //       },
 //     );
@@ -34,7 +36,7 @@
 //           emit((SuccessTaskCreationState()));
           
 //         } else {
-//           emit(ErrorState());
+//           emit(ErrorState(message: ''));
 //         }
 //       },
 //     );
@@ -44,13 +46,13 @@
 //       (event, emit) async {
 //         emit(LoadingState());
 //         // ! We Can Find The attribute of Event in the 'event' object 
-//         ResultModel result = await TaskSerivceImp().deleteTask();
+//         ResultModel result = await TaskSerivceImp().deleteTask(event.task);
 //        // print(result.)
 //         if (result is SuccessClass) {
 //           emit((SuccessTaskCreationState()));
           
 //         } else {
-//           emit(ErrorState());
+//           emit(ErrorState(message: ''));
 //         }
 //       },
 //     );

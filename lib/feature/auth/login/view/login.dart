@@ -11,9 +11,16 @@ import 'package:project_managment_state_managment_bloc/model/auth/login_model.da
 import '../bloc/login_event.dart';
 
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
    Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   TextEditingController email =TextEditingController();
+
   TextEditingController password =TextEditingController();
 
   @override

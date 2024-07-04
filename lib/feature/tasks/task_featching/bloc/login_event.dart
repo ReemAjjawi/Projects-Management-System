@@ -2,13 +2,3 @@
 import 'package:project_managment_state_managment_bloc/model/tasks/tasks_model.dart';
 
 
-
-sealed class TaskEvent {}
-
-
-class CreateTask extends TaskEvent {
-  TaskModel task;
-  CreateTask({
-    required this.task,
-  });
-}

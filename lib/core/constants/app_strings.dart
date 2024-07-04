@@ -12,3 +12,4 @@ String LOGIN="Login";
 String CREATE="Create";
 String JOIN="Join";
 String PASSWORD="Password";
+String TASKS="tasks";
