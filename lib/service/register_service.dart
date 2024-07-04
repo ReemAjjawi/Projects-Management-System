@@ -21,9 +21,13 @@ class RegisterSerivceImp extends RegisterSerivce {
       print(response.statusCode);
       if (response.statusCode == 200) {
         print(response.data);
+           print("=-----------------------------------------");
+         
    String token = response.data['access_token'];
         core.get<SharedPreferences>().setString('token', token);
-print(token);
+  print(core.get<SharedPreferences>().getString(
+                  'token',)
+                );
         return SuccessClass(message: "kb");
       } else {
           return ErrorModel(message: "There is no Internet");

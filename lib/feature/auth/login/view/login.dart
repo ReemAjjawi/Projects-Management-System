@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
+import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/login/bloc/login_bloc.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/login/bloc/login_state.dart';
 import 'package:project_managment_state_managment_bloc/main.dart';
@@ -38,7 +39,7 @@ class _LoginState extends State<Login> {
                               
                               children: [
                                 Positioned(child: Container(
-                    child: Image.asset("assets/images/head.png"),
+                    child: Image.asset(ImageApp.head),
                     
                                 ) ),
                                

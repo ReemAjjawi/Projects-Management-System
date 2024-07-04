@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/login/view/login.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/register/view/register.dart';
+import 'package:project_managment_state_managment_bloc/feature/tasks/task_field/view/tasks.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/config/bloc_observe_config.dart';
 import 'core/config/get_it_config.dart';
 import 'feature/create&join/create&join.dart';
 import 'feature/project_creation/view/project_creation.dart';
+import 'utility.dart/colored_textfield.dart';
 
-void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
+void main() async{
+   // WidgetsFlutterBinding.ensureInitialized();
 await  setup();
   Bloc.observer = MyBlocObserver();
-  print(core.get<SharedPreferences>().getString('token'));
+ // print(core.get<SharedPreferences>().getString('token'));
   runApp(MyApp ());
 }
 late double width;
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
     width=MediaQuery.sizeOf(context).width;
     height=MediaQuery.sizeOf(context).height;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
    
       home:  Register(),

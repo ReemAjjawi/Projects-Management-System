@@ -5,17 +5,21 @@ import '../main.dart';
 class ContainerTextField extends StatelessWidget {
   const ContainerTextField({
     super.key,
-    required this.firstName,
+    required this.field,
+        required this.height,
+    required this.width,
+
     
   });
 
-  final TextEditingController firstName;
-
+  final TextEditingController field;
+final height ;
+final width;
   @override
   Widget build(BuildContext context) {
     return Container(
-     height:height/14 ,
-     width:width/2,
+     height:height,
+     width:width,
       child: TextFormField(
           decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -24,7 +28,7 @@ class ContainerTextField extends StatelessWidget {
                           )
                         )
                       ),
-        controller: firstName,
+        controller: field,
       ),
     );
   }

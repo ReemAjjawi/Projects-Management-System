@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:project_managment_state_managment_bloc/core/config/get_it_config.dart';
 import 'package:project_managment_state_managment_bloc/model/projects/project_creation_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../core/config/header_config.dart';
 import '../url/api.dart';
 import '../model/auth/login_model.dart';
@@ -21,10 +23,19 @@ class ProjectSerivceImp extends ProjectSerivce {
     try {
       response = await dio.post(baseUrl+Api.createProjectApi, data: obj.toJson(), options: HeaderConfig.getHeader(useToken: true),
 );
+
+                print(core.get<SharedPreferences>().getString(
+                  'token',)
+                );
+  
       print(response.statusCode);
+      
       if (response.statusCode == 200) {
         print(response.data);
 
+                print(core.get<SharedPreferences>().getString(
+                  'token',)
+                );
   
         return SuccessClass( message: '');
    } else {
