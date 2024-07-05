@@ -9,7 +9,11 @@ String PROJECTNAME="Project name";
 String PROJECTSCRIPT="Project script";
 // String EMAIL="Email";
 String LOGIN="Login";
-String CREATE="Create";
+String CREATEINJOINPAGE="Create";
+String CREATEINPROJECTPAGE="Create";
+
+String CREATEINTASKPAGE="Create";
+
 String JOIN="Join";
 String PASSWORD="Password";
 String TASKS="tasks";

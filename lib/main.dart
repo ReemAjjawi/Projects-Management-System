@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/login/view/login.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/register/view/register.dart';
-import 'package:project_managment_state_managment_bloc/feature/tasks/task_field/view/tasks.dart';
+import 'package:project_managment_state_managment_bloc/feature/tasks/add_task_field/view/tasks.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/config/bloc_observe_config.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
    
-      home:  Register(),
+      home:  MyTasks(3),
     );
   }
 }

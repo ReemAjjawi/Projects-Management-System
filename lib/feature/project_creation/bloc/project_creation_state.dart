@@ -6,7 +6,10 @@ sealed class CreateProjectState {}
 final class CreateProjectInitialState extends CreateProjectState {}
 
 class SuccessCreateProjectState extends CreateProjectState {
-
+int id;
+  SuccessCreateProjectState({
+    required this.id,
+  });
 }
 
 class ErrorState extends CreateProjectState {

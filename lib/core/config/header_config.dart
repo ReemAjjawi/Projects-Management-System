@@ -8,11 +8,7 @@ class HeaderConfig {
       return Options(
         headers: {
           "accept": "*/*",
-          "Authorization": "Bearer ${(
-            core.get<SharedPreferences>().getString(
-                  'token',
-                ),
-          )}"
+           "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ4Z2ZkZmdmZGZnIiwiaWF0IjoxNzIwMTg1NzM4LCJleHAiOjE3MjA3OTA1Mzh9.g3r_KrGREeiLjEuHopatULDejLViUjLPoPhc6LsBhhA"
         },
       );
     } else {
@@ -24,3 +20,11 @@ class HeaderConfig {
     }
   }
 }
+
+
+
+      // ${(
+          //   core.get<SharedPreferences>().getString(
+          //         'token',
+          //       ),
+          // )}

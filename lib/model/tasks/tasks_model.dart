@@ -11,23 +11,23 @@ String taskModelToJson(List<TaskModel> data) => json.encode(List<dynamic>.from(d
 class TaskModel {
     String taskDescription;
     String taskStatus;
-    int projectId;
+    int project_id;
 
     TaskModel({
         required this.taskDescription,
         required this.taskStatus,
-        required this.projectId,
+        required this.project_id,
     });
 
     factory TaskModel.fromJson(Map<String, dynamic> json) => TaskModel(
         taskDescription: json["taskDescription"],
         taskStatus: json["taskStatus"],
-        projectId: json["project_id"],
+        project_id: json["project_id"],
     );
 
     Map<String, dynamic> toJson() => {
         "taskDescription": taskDescription,
         "taskStatus": taskStatus,
-        "project_id": projectId,
+        "project_id": project_id,
     };
 }

@@ -1,87 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
-import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
-import 'package:project_managment_state_managment_bloc/model/tasks/tasks_model.dart';
-import '../../../../main.dart';
-import '../bloc/tasks_bloc.dart';
 
-class MyTasksx extends StatefulWidget {
-  MyTasksx({super.key});
-
-  @override
-  State<MyTasksx> createState() => _MyTasksxState();
-}
-
-class _MyTasksxState extends State<MyTasksx> {
-  TextEditingController taskDescription = TextEditingController();
-
-late List<String> cont = [taskDescription.text];
-
-  List<TaskModel> dd = [
-    TaskModel(
-        taskDescription: "taskDescription", taskStatus: "NEW", projectId: 3)
-  ];
-
-  int x=1;
-
-  //ValueNotifier<int> x = ValueNotifier(1);
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FieldAdditionBloc(),
-      child: Builder(builder: (context) {
-        return Scaffold(
-          body: Container(
-            height:height,
-            child: Column(
-              children: [
-               
-             
-                        Container(
-                    width: 70,
-                    height: 70,
-                    child: Image.asset(ImageApp.logo),
-                  ),
-                  Text(TASKS),
-                      BlocBuilder<FieldAdditionBloc, FieldAdditionState>(
-                        builder: (context, state) {
-                                if (state is FieldInitialAdditionState) {
-                          return Container(
-                                        height:height/2,
-
-                            child: Row(
-                              children: [
-                     Container(
-                      height: 30,
-                       child: TextField(
-                        decoration: InputDecoration(
-                       
-                          enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black
-                          )
-                          )
-                        ),
-                         controller: taskDescription,
-                       ),
-                     ),
-                         IconButton(
-                                                      onPressed: ()  {
-                                                        cont.add(taskDescription.text);
-                                                      //  x++;
-                                                      //  taskDescription.dispose();
-                                                       context.read<FieldAdditionBloc>().add(Addition(cont: cont,x:x));},  
-                                                              icon: Icon(Icons.abc_outlined))
-                              ],
-                            ),
-                          );
-                                }
-                                else if (state is ListFieldAdditionSuccessState) {
-                                  return Container(
-                                                height:height/2,
-                                                color: Colors.red,
 
                                     // child: Column(
                                     //   children: [
@@ -110,30 +27,7 @@ late List<String> cont = [taskDescription.text];
                                         // ),
                                 //      ],
                                   //  ),
-                                  );
-                                  
-                                }
-                                else{
-                                  return SizedBox();
-                                }
-                        },
-                   
-                  ),
-                
-            
-            
-               
-              ],)
-            ),
-          
-
-          
-        );
-      }),
-    );
-  }
-}
-
+                               
 
 
 
@@ -200,7 +94,20 @@ late List<String> cont = [taskDescription.text];
 
 
 
-
+        //  return Dismissible(
+        //                                             background: Container(
+        //                                               color: Colors.red,
+        //                                               child: Icon(Icons.delete),
+        //                                             ),
+        //                                             key: ValueKey<String>(
+        //                                                 cont[index]),
+        //                                             onDismissed:
+        //                                                 (DismissDirection
+        //                                                     direction) {},
+        //                                             child: ColoredContainer(
+        //                                                 txt: state.cont[index],
+        //                                                 height: height / 8,
+        //                                                 width: width / 2.2));
 
 
                   // if (state is FieldInitialAdditionState) {

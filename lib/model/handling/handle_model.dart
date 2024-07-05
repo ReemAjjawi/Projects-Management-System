@@ -17,6 +17,12 @@ class ErrorModel extends ResultModel {
 
 }
 
+class SuccessClass extends ResultModel {
+  String message;
+  SuccessClass({
+    required this.message
+  });
+}
 
 class ListOf<T> extends ResultModel {
   List<T> dataList;

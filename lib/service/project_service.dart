@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:project_managment_state_managment_bloc/core/config/get_it_config.dart';
 import 'package:project_managment_state_managment_bloc/model/projects/project_creation_model.dart';
+import 'package:project_managment_state_managment_bloc/model/projects/projects_fetched_modelmodel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../core/config/header_config.dart';
 import '../url/api.dart';
@@ -19,6 +20,7 @@ class ProjectSerivceImp extends ProjectSerivce {
   @override
   Future<ResultModel> createProject(ProjectModel obj) async {
           print("response.statusCode");
+          print(baseUrl+Api.createProjectApi);
 
     try {
       response = await dio.post(baseUrl+Api.createProjectApi, data: obj.toJson(), options: HeaderConfig.getHeader(useToken: true),
@@ -30,6 +32,8 @@ class ProjectSerivceImp extends ProjectSerivce {
   
       print(response.statusCode);
       
+     ProjectInformationModel pp= ProjectInformationModel.fromJson(response.data);
+      
       if (response.statusCode == 200) {
         print(response.data);
 
@@ -37,12 +41,13 @@ class ProjectSerivceImp extends ProjectSerivce {
                   'token',)
                 );
   
-        return SuccessClass( message: '');
+        return pp;
    } else {
           return ErrorModel(message: "There is no Internet");
         }
       
     }on DioException catch (e) {
+      print(e);
       return ExceptionModel(message: e.message!);
     }
   }

@@ -52,7 +52,7 @@ class CreateOrJoin extends StatelessWidget {
             width: width / 1.3,
             height: height / 12,
           ),
-          ContainerElevatedButton(txt: CREATE),
+          ContainerElevatedButton(txt: CREATEINJOINPAGE),
           SizedBox(
             width: width / 1.3,
             height: height / 12,

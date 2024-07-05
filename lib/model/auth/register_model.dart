@@ -43,9 +43,3 @@ class RegisterModel extends ResultModel{
     };
 }
 
-class SuccessClass extends ResultModel {
-  String message;
-  SuccessClass({
-    required this.message
-  });
-}
