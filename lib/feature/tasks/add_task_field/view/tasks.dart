@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
+import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
 import 'package:project_managment_state_managment_bloc/model/tasks/tasks_model.dart';
 import 'package:project_managment_state_managment_bloc/utility.dart/colored_textfield.dart';
 import '../../../../main.dart';
@@ -61,17 +62,18 @@ class _MyTasksState extends State<MyTasks> {
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
-                    child: Container(
-                      width: width / 7,
-                      height: height / 12,
-                      child: Image.asset(ImageApp.logo),
-                    ),
+                    child:   Container(
+                   // color: Colors.black12,
+                    width: width/7,
+                    height: height/9,
+                    child: Image.asset(ImageApp.logo,),
+                  ),
                   ),
                   Align(
                       alignment: Alignment.topLeft,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(TASKS),
+                        child: Text(TASKS,style: Style.projectStyle,),
                       )),
                   SizedBox(
                     width: width / 7,
@@ -165,7 +167,7 @@ class _MyTasksState extends State<MyTasks> {
                                             return ColoredContainer(
                                                 txt: state.cont[index],
                                                 height: height / 8,
-                                                width: width / 2.2);
+                                                width: width / 2.64);
                                           }),
                                     ),
                                   ),
@@ -186,20 +188,22 @@ class _MyTasksState extends State<MyTasks> {
                   BlocBuilder<TaskBloc, TaskState>(
                     builder: (context, state) {
                       if (state is TaskInitialState) {
-                        return Container(
-                            width: width / 1.3,
-                            height: height / 12,
-                            child: ElevatedButton(
-                              onPressed: ()  {
-                                context.read<TaskBloc>().add(CreateTask(
-                                      task: cont,
-                                    ));
-                              },
-                              child: Text(CREATEINTASKPAGE),
-                              style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12))),
-                            ));
+                        return Center(
+                          child: Container(
+                              width: width / 1.45,
+                              height: height / 12,
+                              child: ElevatedButton(
+                                onPressed: ()  {
+                                  context.read<TaskBloc>().add(CreateTask(
+                                        task: cont,
+                                      ));
+                                },
+                                child: Text(CREATEINTASKPAGE),
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12))),
+                              )),
+                        );
                       } else if (state is ErrorState) {
                         return SizedBox(
                           height: 100,

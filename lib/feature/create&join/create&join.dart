@@ -1,9 +1,12 @@
+import 'package:dotted_border/dotted_border.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
+import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
 
 import '../../main.dart';
 import '../../utility.dart/container_button.dart';
@@ -53,24 +56,50 @@ class CreateOrJoin extends StatelessWidget {
             height: height / 12,
           ),
           ContainerElevatedButton(txt: CREATEINJOINPAGE),
-          SizedBox(
+ SizedBox(
             width: width / 1.3,
             height: height / 12,
           ),
-          Container(
-            decoration: BoxDecoration(border: Border.all()),
-            child: Container(
-              width: width / 1.3,
-              height: height / 12,
+        
+            
+              DottedBorder(
+      color: Colors.white, // border color
+      strokeWidth: 1, // border width
+      borderType: BorderType.RRect,
+      dashPattern: [12, 3, 12, 3], 
+      radius: Radius.circular(12), // border radius
+    padding: EdgeInsets.all(9),
+        child: 
+            Container(
+              width:width/1.4,
+    height: height/18,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
-                  Text(JOIN)
+IconButton(onPressed: (){},
+                                          style: ButtonStyle(                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                                    AppColor.whiteColor),
+                                          ),
+                                   
+                                          icon: Center(child: Icon(Icons.add))),
+                                                 SizedBox(
+            width: width / 21,
+            height: height / 12,
+          ),
+                                              Text(JOIN,style: Style.joinStyle,)
                 ],
-              ),
+              
             ),
           ),
+          
+      
+    ),
+      
+        
+            
+            
+           
         ],
       ),
     );

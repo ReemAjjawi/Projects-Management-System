@@ -11,4 +11,14 @@ class Style{
     static  TextStyle fieldStyle=TextStyle(
     color: AppColor.primaryColor,
   );
+  static  TextStyle button=TextStyle(
+    color: AppColor.primaryColor,fontSize: 20
+  );
+  static  TextStyle joinStyle=TextStyle(
+    color: AppColor.whiteColor,fontSize: 20
+  );
+  
+  static  TextStyle projectStyle=TextStyle(
+    color: AppColor.whiteColor,fontSize: 15
+  );
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
+import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
 import 'package:project_managment_state_managment_bloc/feature/project_creation/bloc/project_creation_state.dart';
 import 'package:project_managment_state_managment_bloc/feature/tasks/add_task_field/view/tasks.dart';
 
@@ -30,54 +31,54 @@ class _ProjectCreationState extends State<ProjectCreation> {
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: width/3,
-                    height: height/8,
-                    child: Image.asset(ImageApp.logo),
+                   // color: Colors.black12,
+                    width: width/7,
+                    height: height/7,
+                    child: Image.asset(ImageApp.logo,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(PROJECTNAME),
+                    padding: const EdgeInsets.only(bottom: 5.0,right: 5,left: 5),
+                    child: Text(PROJECTNAME,style: Style.projectStyle,),
+                  ),
+                  TextFormField(
+                  
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)
+                      ),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12))
+                    ),
+                    controller: projectName,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 10.0),
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(PROJECTSCRIPT,style: Style.projectStyle,),
+                  ),
+                  Container(
+                    //width: width/3,
+                    height: height/1.9,
                     child: TextFormField(
-                        decoration: InputDecoration(
+                                maxLines: 25,
+                      decoration: InputDecoration(
+                         filled: true,
+                        fillColor: Colors.white,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12)
                         ),
                         focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12))
                       ),
-                      controller: projectName,
+                      controller: projectScript,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text(PROJECTSCRIPT),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Container(
-                      //width: width/3,
-                      height: height/2.5,
-                      child: TextFormField(
-                                  maxLines: 8,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)
-                          ),
-                          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12))
-                        ),
-                        controller: projectScript,
-                      ),
-                    ),
-                  ),
-                  Spacer(flex:2),
+                  Spacer(),
                   BlocConsumer<CreateProjectBloc, CreateProjectState>(
 
    listener: (context, state) {
@@ -94,7 +95,7 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                         padding: const EdgeInsets.only(bottom: 20.0),
                         child: Center(
                           child: Container(
-                              width: width / 1.3,
+                              width: width / 1.2,
                               height: height / 12,
                               child: ElevatedButton(
                                 onPressed: () async {
@@ -104,7 +105,7 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                                           projectDescription: projectScript.text,
                                           projectStatus: "NEW")));
                                 },
-                                child: Text(CREATEINPROJECTPAGE),
+                                child: Text(CREATEINPROJECTPAGE,style: Style.button,),
                                 style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12))),

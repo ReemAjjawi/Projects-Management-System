@@ -23,7 +23,7 @@ class ProjectModel {
         projectName: json["projectName"],
         projectDescription: json["projectDescription"],
         projectStatus: json["projectStatus"],
-    );
+    );                                                                                                                                                                                                                                                                            
 
     Map<String, dynamic> toJson() => {
         "projectName": projectName,

@@ -16,4 +16,4 @@ String CREATEINTASKPAGE="Create";
 
 String JOIN="Join";
 String PASSWORD="Password";
-String TASKS="tasks";
+String TASKS="Tasks";

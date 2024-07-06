@@ -50,6 +50,7 @@ class _RegisterState extends State<Register> {
                   ),
                   // Spacer(flex:3),
                   Stack(
+                                  clipBehavior: Clip.none,
                     children: [
                       Container(
                         decoration: BoxDecoration(
