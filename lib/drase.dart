@@ -2,6 +2,33 @@
 // class HomePage extends StatelessWidget {
 //   HomePage({super.key});
 
+
+
+
+//   Future<UserInfoModel?> getMyInfo() async {
+//     try {
+//       response =
+//           await dio.get('https://dummyjson.com/auth/me', options: getHeader());
+//       if (response.statusCode == 200) {
+//         UserInfoModel user = UserInfoModel.fromMap(response.data);
+//         return user;
+//       } else {
+//         return null;
+//       }
+//     } on DioException catch (e) {
+//       print(e);
+//       return null;
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
 //   ValueNotifier<ResultModel> result = ValueNotifier(ResultModel());
 
 //   @override

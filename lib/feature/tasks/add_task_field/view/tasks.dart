@@ -198,7 +198,7 @@ class _MyTasksState extends State<MyTasks> {
                                         task: cont,
                                       ));
                                 },
-                                child: Text(CREATEINTASKPAGE),
+                                child: Text(CREATEINTASKPAGE,style:Style.button),
                                 style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12))),
@@ -211,7 +211,7 @@ class _MyTasksState extends State<MyTasks> {
                             children: [
                               ElevatedButton(
                                   onPressed: () async {},
-                                  child: Text(CREATEINTASKPAGE)),
+                                  child: Text(CREATEINTASKPAGE,style:Style.button)),
                               Text(
                                 state.message,
                                 style:
@@ -223,7 +223,7 @@ class _MyTasksState extends State<MyTasks> {
                       } else if (state is SuccessTaskCreationState) {
                         return Container(
                           width: 200,
-                          height: 100,
+                          height: 50,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.green),

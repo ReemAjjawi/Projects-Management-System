@@ -6,7 +6,7 @@ static String registerApi='auth/register';
  static String logoutApi='auth/logout';
   //put
 
- static String getProjectsApi='projects';
+ //static String getProjectsApi='projects';
  //get
 
  static  String createProjectApi='projects';
@@ -14,17 +14,16 @@ static String registerApi='auth/register';
 
  static  String createTasksApi='tasks';
  //post
-  static  String getTasksApi='tasks';
+  static  String getTasksApi='tasks/tasks-by-project/{project_id}'; 
+  //get task for one project
   //get
     static  String deleteTasksApi='tasks/{id}';
 //delete
+    static  String deleteProjectApi='projects/';
+//delete with put {id}
 
-  static  String deleteProjectsApi='projects/{id}';
-  //delete
-//  static  String registerApi='tasks'
-//  static  String registerApi='tasks'
-//  static  String registerApi='tasks'
-
+    static  String getProject='projects/';
+    //get with put{id}
 
 
 }

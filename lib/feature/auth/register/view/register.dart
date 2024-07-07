@@ -165,28 +165,35 @@ class _RegisterState extends State<Register> {
                       if (state is RegisterInitialState) {
                         return Padding(
                           padding: const EdgeInsets.all(13.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              context.read<RegisterBloc>().add(
-                                    SignUp(
-                                      user: RegisterModel(
-                                        firstName: firstName.text,
-                                        lastName: lastName.text,
-                                        email: email.text,
-                                        role: 'USER',
-                                        password: password.text,
+                          child: Container(
+                                    width:width/1.3,
+    height: height/12,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                context.read<RegisterBloc>().add(
+                                      SignUp(
+                                        user: RegisterModel(
+                                          firstName: firstName.text,
+                                          lastName: lastName.text,
+                                          email: email.text,
+                                          role: 'USER',
+                                          password: password.text,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                            },
-                            child: Text(SIGNUP),
-                            style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                    side: BorderSide(
-                                      color: AppColor.PegColor,
-                                      width: width / 1.8,
-                                    ))),
+                                    );
+                              },
+                              child: Text(SIGNUP,style: Style.button,),
+                              style: ElevatedButton.styleFrom(                                    backgroundColor: AppColor.PegColor,
+                            
+                            
+                            
+                            
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      side: BorderSide(
+                                        width: width / 1.8,
+                                      ))),
+                            ),
                           ),
                         );
                       } else if (state is ErrorState) {

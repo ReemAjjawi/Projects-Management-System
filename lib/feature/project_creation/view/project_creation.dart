@@ -31,7 +31,7 @@ class _ProjectCreationState extends State<ProjectCreation> {
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,16 +58,20 @@ class _ProjectCreationState extends State<ProjectCreation> {
                     ),
                     controller: projectName,
                   ),
+                  SizedBox(
+height: height/21,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Text(PROJECTSCRIPT,style: Style.projectStyle,),
                   ),
                   Container(
                     //width: width/3,
-                    height: height/1.9,
+                    height: height/2.4,
                     child: TextFormField(
                                 maxLines: 25,
                       decoration: InputDecoration(
+                       // hintText: "there is nk0c kkob ofo ",
                          filled: true,
                         fillColor: Colors.white,
                         enabledBorder: OutlineInputBorder(
@@ -95,7 +99,7 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                         padding: const EdgeInsets.only(bottom: 20.0),
                         child: Center(
                           child: Container(
-                              width: width / 1.2,
+                              width: width / 1.1,
                               height: height / 12,
                               child: ElevatedButton(
                                 onPressed: () async {
@@ -106,7 +110,7 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                                           projectStatus: "NEW")));
                                 },
                                 child: Text(CREATEINPROJECTPAGE,style: Style.button,),
-                                style: ElevatedButton.styleFrom(
+                                style: ElevatedButton.styleFrom(                backgroundColor: AppColor.PegColor,
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12))),
                               )),
@@ -114,25 +118,28 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                       );}
                     else if (state is ErrorState) {
                         return SizedBox(
-                          height: 300,
+                          height: 100,
                           child: Column(
                             children: [
-                            Container(
-                            width: width / 1.3,
-                            height: height / 12,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                context.read<CreateProjectBloc>().add(CreateProject(
-                                    project: ProjectModel(
-                                        projectName: projectName.text,
-                                        projectDescription: projectScript.text,
-                                        projectStatus: "NEW")));
-                              },
-                              child: Text(CREATEINPROJECTPAGE),
-                              style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12))),
-                            )),
+                            Center(
+                              child: Container(
+             
+                              width: width / 1.1,
+                              height: height / 12,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  context.read<CreateProjectBloc>().add(CreateProject(
+                                      project: ProjectModel(
+                                          projectName: projectName.text,
+                                          projectDescription: projectScript.text,
+                                          projectStatus: "NEW")));
+                                },
+                                child: Text(CREATEINPROJECTPAGE,style: Style.button,),
+                                style: ElevatedButton.styleFrom(                backgroundColor: AppColor.PegColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12))),
+                              )),
+                            ),
                               Text(
                                 state.message,
                                 style: TextStyle(fontSize: 20, color: Colors.red),
@@ -155,7 +162,9 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                           ),
                         );
                       } else {
-                        return CircularProgressIndicator();
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
                       }
               
                     

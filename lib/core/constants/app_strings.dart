@@ -11,9 +11,12 @@ String PROJECTSCRIPT="Project script";
 String LOGIN="Login";
 String CREATEINJOINPAGE="Create";
 String CREATEINPROJECTPAGE="Create";
-
+String YESISURE="Yes, i sure ";
+String CANCEL="Cancel";
 String CREATEINTASKPAGE="Create";
-
+String DELETE="Delete";
+String EDIT="Edit";
+String SURETODELETE="Are you sure you want to \n delete this project ?";
 String JOIN="Join";
 String PASSWORD="Password";
 String TASKS="Tasks";

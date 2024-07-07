@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'core/config/bloc_observe_config.dart';
 import 'core/config/get_it_config.dart';
 import 'feature/create&join/create&join.dart';
+import 'feature/featched_project.dart/view/fetch_project.dart';
 import 'feature/project_creation/view/project_creation.dart';
 import 'utility.dart/colored_textfield.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
    
-      home:Register()
+      home:FetchProjectPage()
     );
   }
 }

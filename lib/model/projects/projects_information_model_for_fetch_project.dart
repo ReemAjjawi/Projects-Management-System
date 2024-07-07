@@ -6,21 +6,21 @@ import 'dart:convert';
 
 import 'package:project_managment_state_managment_bloc/model/handling/handle_model.dart';
 
-List<ProjectInformationModel> projectsModelFromJson(String str) => List<ProjectInformationModel>.from(json.decode(str).map((x) => ProjectInformationModel.fromJson(x)));
+List<ProjectInformationModelForFetchProject> projectsModelFromJson(String str) => List<ProjectInformationModelForFetchProject>.from(json.decode(str).map((x) => ProjectInformationModelForFetchProject.fromJson(x)));
 
-String projectsModelToJson(List<ProjectInformationModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String projectsModelToJson(List<ProjectInformationModelForFetchProject> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class ProjectInformationModel extends ResultModel{
+class ProjectInformationModelForFetchProject extends ResultModel{
     int id;
     String name;
     String description;
     String status;
     DateTime createDate;
     DateTime lastModified;
-    String createdBy;
-    String lastModifiedBy;
+    int createdBy;
+    int lastModifiedBy;
 
-    ProjectInformationModel({
+    ProjectInformationModelForFetchProject({
         required this.id,
         required this.name,
         required this.description,
@@ -31,7 +31,7 @@ class ProjectInformationModel extends ResultModel{
         required this.lastModifiedBy,
     });
 
-    factory ProjectInformationModel.fromJson(Map<String, dynamic> json) => ProjectInformationModel(
+    factory ProjectInformationModelForFetchProject.fromJson(Map<String, dynamic> json) => ProjectInformationModelForFetchProject(
         id: json["id"],
         name: json["name"],
         description: json["description"],
