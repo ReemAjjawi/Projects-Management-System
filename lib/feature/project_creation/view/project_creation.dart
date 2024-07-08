@@ -87,6 +87,9 @@ height: height/21,
 
    listener: (context, state) {
                 if (state is SuccessCreateProjectState) {
+
+
+                  
 Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id),
                               ),);       }
               },
@@ -149,17 +152,7 @@ Navigator.push(context,MaterialPageRoute( builder: (context) => MyTasks(state.id
                         );
                       } else if (state is SuccessCreateProjectState) {
                         return Container(
-                          width: 200,
-                          height: 100,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.green),
-                          child: Center(
-                            child: Icon(
-                              Icons.verified,
-                              color: Colors.white,
-                            ),
-                          ),
+                         
                         );
                       } else {
                         return Center(

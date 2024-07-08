@@ -100,9 +100,11 @@ final width;
           color: Colors.white,
           border:Border(
 top: BorderSide(
+
   color: AppColor.borderTextFieldColor,
   width: 15
 ),
+
 left: BorderSide(
     color: AppColor.borderTextFieldColor,
 

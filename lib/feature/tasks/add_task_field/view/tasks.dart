@@ -8,14 +8,17 @@ import 'package:project_managment_state_managment_bloc/core/resources/images.dar
 import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
 import 'package:project_managment_state_managment_bloc/model/tasks/tasks_model.dart';
 import 'package:project_managment_state_managment_bloc/utility.dart/colored_textfield.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../../core/config/get_it_config.dart';
 import '../../../../main.dart';
+import '../../../featched_project.dart/view/fetch_project.dart';
 import '../../task_creation/bloc/tasks_bloc.dart';
 import '../../task_creation/bloc/tasks_event.dart';
 import '../../task_creation/bloc/tasks_state.dart';
 import '../bloc/add_task_bloc.dart';
 import '../bloc/add_task_event.dart';
 import '../bloc/add_task_state.dart';
-
+late int idd;
 class MyTasks extends StatefulWidget {
   MyTasks(this.id, {super.key});
   int id;
@@ -29,14 +32,18 @@ class _MyTasksState extends State<MyTasks> {
 
   final List<String> cont = [];
   void initState() {
+    idd=widget.id;
     super.initState();
+            core.get<SharedPreferences>().setString('id', widget.id.toString());
+
     // Use widget.id to fetch data or perform other tasks
     print('Received ID: ${widget.id}');
   }
+  var id=core.get<SharedPreferences>().getString('id') ;
 
   List<TaskModel> dd = [
     TaskModel(
-        taskDescription: "taskDescrion", taskStatus: "NEW", project_id: 1)
+        taskDescription: "taskDescrion", taskStatus: "NEW", project_id:3816 )
   ];
 
   int x = 1;
@@ -185,7 +192,18 @@ class _MyTasksState extends State<MyTasks> {
                     },
                   ),
                   Spacer(),
-                  BlocBuilder<TaskBloc, TaskState>(
+                  BlocConsumer<TaskBloc, TaskState>(
+                    
+   listener: (context, state) {
+                if (state is SuccessTaskCreationState) {
+
+
+                  
+Navigator.push(context,MaterialPageRoute( builder: (context) => FetchProjectPage(),
+                              ),);       }
+              },
+
+
                     builder: (context, state) {
                       if (state is TaskInitialState) {
                         return Center(
@@ -222,17 +240,7 @@ class _MyTasksState extends State<MyTasks> {
                         );
                       } else if (state is SuccessTaskCreationState) {
                         return Container(
-                          width: 200,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.green),
-                          child: Center(
-                            child: Icon(
-                              Icons.verified,
-                              color: Colors.white,
-                            ),
-                          ),
+                       
                         );
                       } else {
                         return CircularProgressIndicator();

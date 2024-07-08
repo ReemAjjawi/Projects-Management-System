@@ -1,24 +1,27 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:project_managment_state_managment_bloc/model/handling/handle_model.dart';
+import 'package:project_managment_state_managment_bloc/model/tasks/featch_tasks.dart';
+
 import '../../../model/projects/projects_information_model_for_fetch_project.dart';
 
-sealed class FetchProjectState {}
+sealed class FeatchTasksState {}
 
-final class FetchProjectInitialState extends FetchProjectState {}
+final class FeatchTasksInitialState extends FeatchTasksState {}
 
-class SuccessFetchProjectState extends FetchProjectState {
-ProjectInformationModelForFetchProject fetchedProject;
-  SuccessFetchProjectState({
-    required this.fetchedProject,
+class SuccessFeatchTasksState extends FeatchTasksState {
+List <FeatchTasksModel> featchedTasks;
+  SuccessFeatchTasksState({
+    required this.featchedTasks,
   });
 }
 
-class ErrorFetchProjectState extends FetchProjectState {
+class ErrorFetchTasksState extends FeatchTasksState {
   String message;
-  ErrorFetchProjectState({
+  ErrorFetchTasksState({
     required this.message,
   });
 }
-class LoadingState extends FetchProjectState {}
+class LoadingState extends FeatchTasksState {}
 
 
 

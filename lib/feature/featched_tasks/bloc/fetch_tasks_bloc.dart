@@ -1,26 +1,28 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_managment_state_managment_bloc/model/tasks/featch_tasks.dart';
 import '../../../../model/handling/handle_model.dart';
-import '../../../model/projects/projects_information_model_for_fetch_project.dart';
-import '../../../service/fetch_project_service.dart';
-import 'fetch_project_event.dart';
-import 'fetch_project_state.dart';
+import '../../../service/featch_tasks_service.dart';
+import 'fetch_tasks_event.dart';
+import 'fetch_tasks_state.dart';
 
 
-class  FetchProjectBloc extends Bloc<FetchProjectEvent, FetchProjectState> {
-  FetchProjectBloc() : super(FetchProjectInitialState()) {
+class  FeatchTasksBloc extends Bloc<FeatchTasksEvent, FeatchTasksState> {
+  FeatchTasksBloc() : super(FeatchTasksInitialState()) {
  
 
-    on<FetchProject>(
+    on<FeatchTasks>(
       (event, emit) async {
+        print("kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
         emit(LoadingState());
-        // ! We Can Find The attribute of Event in the 'event' object 
-        ResultModel result = await FetchProjectSerivceImp().fetchProject();
-       // print(result.)
-        if (result is ProjectInformationModelForFetchProject) {
-          emit((SuccessFetchProjectState(fetchedProject: result)));
+        // ! We Can Find The attribute of Event in the 'event' object
+        print("iammmmmmmmmmmmmmmmmmmmmmm in bllllllllllllllllllllllllloccccccccccccccccc");
+        ResultModel result = await FeatchTasksSerivceImp().featchTasks();
+        print(result);
+        if (result is ListOf<FeatchTasksModel>) {
+          emit((SuccessFeatchTasksState(featchedTasks:result.dataList)));
           
         } else {
-          emit(ErrorFetchProjectState(message: result.runtimeType.toString()));
+          emit(ErrorFetchTasksState(message: result.runtimeType.toString()));
         }
       },
     );

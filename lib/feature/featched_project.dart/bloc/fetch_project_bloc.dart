@@ -1,23 +1,23 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../model/handling/handle_model.dart';
 import '../../../model/projects/projects_information_model_for_fetch_project.dart';
-import '../../../service/fetch_project_service.dart';
+import '../../../service/featch_project_service.dart';
 import 'fetch_project_event.dart';
 import 'fetch_project_state.dart';
 
-
-class  FetchProjectBloc extends Bloc<FetchProjectEvent, FetchProjectState> {
-  FetchProjectBloc() : super(FetchProjectInitialState()) {
+class  FeatchProjectBloc extends Bloc<FeatchProjectEvent, FeatchProjectState> {
+  FeatchProjectBloc() : super(FeatchProjectInitialState()) {
  
 
-    on<FetchProject>(
+    on<FeatchProject>(
       (event, emit) async {
-        emit(LoadingState());
+        print("kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
         // ! We Can Find The attribute of Event in the 'event' object 
-        ResultModel result = await FetchProjectSerivceImp().fetchProject();
-       // print(result.)
+        ResultModel result = await FeatchProjectSerivceImp().featchProject();
+        print("this is result is from project service ================================");
+        print(result);
         if (result is ProjectInformationModelForFetchProject) {
-          emit((SuccessFetchProjectState(fetchedProject: result)));
+          emit((SuccessFeatchProjectState(featchedProject: result)));
           
         } else {
           emit(ErrorFetchProjectState(message: result.runtimeType.toString()));

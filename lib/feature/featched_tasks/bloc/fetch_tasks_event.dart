@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 
-sealed class FetchProjectEvent {}
+sealed class FeatchTasksEvent {}
 
 
-class FetchProject extends FetchProjectEvent {
-  FetchProject();
+class FeatchTasks extends FeatchTasksEvent {
+
 }

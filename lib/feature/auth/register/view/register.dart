@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_managment_state_managment_bloc/core/constants/app_strings.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/images.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
+import 'package:project_managment_state_managment_bloc/feature/create&join/create&join.dart';
 import 'package:project_managment_state_managment_bloc/model/auth/register_model.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/register/bloc/register_bloc.dart';
 import 'package:project_managment_state_managment_bloc/feature/auth/register/bloc/register_event.dart';
@@ -160,7 +161,13 @@ class _RegisterState extends State<Register> {
                   SizedBox(
                     height: height / 18,
                   ),
-                  BlocBuilder<RegisterBloc, RegisterState>(
+                  BlocConsumer<RegisterBloc, RegisterState>(
+                       listener: (context, state) {
+                if (state is SuccessRegisterState) {
+Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateOrJoin() ));
+                }
+              },
+
                     builder: (context, state) {
                       if (state is RegisterInitialState) {
                         return Padding(
@@ -237,17 +244,8 @@ class _RegisterState extends State<Register> {
                         );
                       } else if (state is SuccessRegisterState) {
                         return Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.green),
-                          child: Center(
-                            child: Icon(
-                              Icons.verified,
-                              color: Colors.white,
-                            ),
-                          ),
+                   height: 100,
+                   width: 100,
                         );
                       } else {
                         return CircularProgressIndicator();

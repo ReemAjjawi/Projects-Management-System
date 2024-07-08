@@ -4,128 +4,139 @@ import 'package:project_managment_state_managment_bloc/core/constants/app_string
 import 'package:project_managment_state_managment_bloc/core/resources/color.dart';
 import 'package:project_managment_state_managment_bloc/core/resources/text_style.dart';
 import 'package:project_managment_state_managment_bloc/feature/featched_project.dart/bloc/fetch_project_bloc.dart';
+import 'package:project_managment_state_managment_bloc/feature/project_deletion.dart/bloc/delete_project_bloc.dart';
 import 'package:project_managment_state_managment_bloc/main.dart';
 
 import '../../../utility.dart/colored_textfield.dart';
-import '../bloc/fetch_project_event.dart';
+import '../bloc/delete_project_event.dart';
 
-class FetchProjectPage extends StatelessWidget {
-  FetchProjectPage({super.key});
+class DeleteProjectPage extends StatelessWidget {
+  DeleteProjectPage({super.key});
   void handleMenuSelection(String value) {
-    print('Selected: $value');
+    value == "delete" ? open.value = "ModalBottomSheetOpen" : "";
   }
 
   ValueNotifier<String> open = ValueNotifier("");
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FetchProjectBloc()..add(FetchProject()),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            backgroundColor: AppColor.primaryColor,
-            body: Column(crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
+      create: (context) => DeleteProjectBloc(),
+      child: Builder(builder: (context) {
+        return Scaffold(
+          backgroundColor: AppColor.primaryColor,
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: height / 12,
+                width: width / 1.1,
+              ),
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: AppColor.lightGreen,
+                      borderRadius: BorderRadius.circular(14)),
                   height: height / 12,
                   width: width / 1.1,
-                ),
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: AppColor.lightGreen,
-                        borderRadius: BorderRadius.circular(14)),
-                    height: height / 12,
-                    width: width / 1.1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(Icons.radar_outlined),
-                        Text(
-                          "data",
-                          style: Style.projectStyle,
-                        ),
-                        PopupMenuButton<String>(
-                          icon: Icon(Icons.more_vert),
-                          onSelected: handleMenuSelection,
-                          itemBuilder: (context) {
-                            return [
-                              PopupMenuItem<String>(
-                                  value: 'delete',
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.delete,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.radar_outlined),
+                      Text(
+                        "data",
+                        style: Style.projectStyle,
+                      ),
+                      PopupMenuButton<String>(
+                        icon: Icon(Icons.more_vert),
+                        onSelected: handleMenuSelection,
+                        itemBuilder: (context) {
+                          return [
+                            PopupMenuItem<String>(
+                                value: 'delete',
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.delete,
+                                        color: AppColor.lightgreyColor),
+                                    SizedBox(
+                                      width: width / 19,
+                                    ),
+                                    Text(
+                                      DELETE,
+                                      style: TextStyle(
                                           color: AppColor.lightgreyColor),
-                                      SizedBox(
-                                        width: width / 19,
-                                      ),
-                                      Text(
-                                        DELETE,
-                                        style: TextStyle(
-                                            color: AppColor.lightgreyColor),
-                                      ),
-                                    ],
-                                  )),
-                              PopupMenuDivider(),
-                              PopupMenuItem<String>(
-                                  value: 'edit',
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.edit,
-                                        color: AppColor.lightgreyColor,
-                                      ),
-                                      SizedBox(
-                                        width: width / 19,
-                                      ),
-                                      Text(
-                                        EDIT,
-                                        style: TextStyle(
-                                            color: AppColor.lightgreyColor),
-                                      ),
-                                    ],
-                                  )),
-                            ];
-                          },
-                        ),
-                      ],
-                    ),
+                                    ),
+                                  ],
+                                )),
+                            PopupMenuDivider(),
+                            PopupMenuItem<String>(
+                                value: 'edit',
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.edit,
+                                      color: AppColor.lightgreyColor,
+                                    ),
+                                    SizedBox(
+                                      width: width / 19,
+                                    ),
+                                    Text(
+                                      EDIT,
+                                      style: TextStyle(
+                                          color: AppColor.lightgreyColor),
+                                    ),
+                                  ],
+                                )),
+                          ];
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  height: height / 12,
-                  width: width / 1.1,
-                ),
-                Container(
-                  height: height / 10,
-                  width: width / 1.1,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColor.PegColor),
-                  child: Text(""),
-                ),
-                Container(
-                  width: width / 3,
-                  height:  height / 2,
-                  child: ListView.builder(
-                      itemCount: 6,
-                      itemBuilder: (context, index) {
-                        return ColoredContainer(
-                            txt: "hhh", height: height / 9, width: width / 4);
-                      }),
-                )
-              ],
-            ),
-            // floatingActionButton: FloatingActionButton(onPressed: (){},backgroundColor: AppColor.floatingButton,child:Container(
-            //   child:  Image.asset("assets/images/project"),decoration:  BoxDecoration(
-            //     shape: BoxShape.circle
-            //   ),
-            //   width:width/10,height:height/18,
-            // ),
-            // ),
-          );
-        }
-      ),
+              ),
+              Container(
+                height: height / 12,
+                width: width / 1.1,
+              ),
+              Container(
+                height: height / 10,
+                width: width / 1.1,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColor.PegColor),
+                child: Text(""),
+              ),
+              ValueListenableBuilder(
+                valueListenable: open,
+                builder: (context, value, child) {
+                  if (value == "ModalBottomSheet") {
+                    return ListTile();
+                  } else {
+                    return FlutterLogo();
+                  }
+                  //return FlutterLogo();
+                },
+              ),
+              Container(
+                width: width / 3,
+                height: height / 2,
+                child: ListView.builder(
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return ColoredContainer(
+                          txt: "hhh", height: height / 9, width: width / 4);
+                    }),
+              )
+            ],
+          ),
+          // floatingActionButton: FloatingActionButton(onPressed: (){},backgroundColor: AppColor.floatingButton,child:Container(
+          //   child:  Image.asset("assets/images/project"),decoration:  BoxDecoration(
+          //     shape: BoxShape.circle
+          //   ),
+          //   width:width/10,height:height/18,
+          // ),
+          // ),
+        );
+      }),
     );
   }
 }

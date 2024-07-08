@@ -1,25 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import '../../../model/projects/projects_information_model_for_fetch_project.dart';
 
-sealed class FetchProjectState {}
+sealed class FeatchProjectState {}
 
-final class FetchProjectInitialState extends FetchProjectState {}
+final class FeatchProjectInitialState extends FeatchProjectState {}
 
-class SuccessFetchProjectState extends FetchProjectState {
-ProjectInformationModelForFetchProject fetchedProject;
-  SuccessFetchProjectState({
-    required this.fetchedProject,
+class SuccessFeatchProjectState extends FeatchProjectState {
+ProjectInformationModelForFetchProject featchedProject;
+  SuccessFeatchProjectState({
+    required this.featchedProject,
   });
 }
 
-class ErrorFetchProjectState extends FetchProjectState {
+class ErrorFetchProjectState extends FeatchProjectState {
   String message;
   ErrorFetchProjectState({
     required this.message,
   });
 }
-class LoadingState extends FetchProjectState {}
-
 
 
 

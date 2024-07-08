@@ -4,26 +4,18 @@ import 'package:project_managment_state_managment_bloc/feature/tasks/add_task_fi
 import 'add_task_event.dart';
 
 class FieldAdditionBloc extends Bloc<FieldAdditionEvent, FieldAdditionState> {
+  FieldAdditionBloc() : super(FieldInitialAdditionState()) {
+    on<Addition>((event, emit) {
+      print("hi");
 
-  FieldAdditionBloc(
-  ) : super(FieldInitialAdditionState()) {
- 
-    on<Addition>(
-      (event, emit)  {
-        print("hi");
-   
-      
-   List <String>  cont = event.cont;
-   x=event.x;
-   print("hfgjj");
-print(x);
-print(cont);
-      if (cont !=[]) {
-        emit(ListFieldAdditionSuccessState(cont: cont,x:x));}
-
-        
-        }  
-    );
-  
-  }}
-
+      List<String> cont = event.cont;
+      x = event.x;
+      print("hfgjj");
+      print(x);
+      print(cont);
+      if (cont != []) {
+        emit(ListFieldAdditionSuccessState(cont: cont, x: x));
+      }
+    });
+  }
+}

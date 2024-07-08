@@ -21,7 +21,9 @@ class ProjectSerivceImp extends ProjectSerivce {
   Future<ResultModel> createProject(ProjectModel obj) async {
           print("response.statusCode");
           print(baseUrl+Api.createProjectApi);
-
+ print(core.get<SharedPreferences>().getString(
+                  'token',)
+                );
     try {
       response = await dio.post(baseUrl+Api.createProjectApi, data: obj.toJson(), options: HeaderConfig.getHeader(useToken: true),
 );

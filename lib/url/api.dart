@@ -14,7 +14,7 @@ static String registerApi='auth/register';
 
  static  String createTasksApi='tasks';
  //post
-  static  String getTasksApi='tasks/tasks-by-project/{project_id}'; 
+  static  String getTasksApi='tasks/tasks-by-project/'; 
   //get task for one project
   //get
     static  String deleteTasksApi='tasks/{id}';

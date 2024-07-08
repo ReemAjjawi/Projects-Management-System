@@ -71,7 +71,7 @@
               //         child: Center(
               //           child: Icon(
               //             Icons.verified,
-              //             color: Colors.white,
+              //             color: Colors.white,0
               //           ),
               //         ),
               //       );
@@ -80,6 +80,37 @@
               //     }
               //   },
               // ),
+
+
+
+
+
+
+
+//     on<DeleteTask>(
+//       (event, emit) async {
+//         emit(LoadingState());
+//         // ! We Can Find The attribute of Event in the 'event' object 
+//         ResultModel result = await TaskSerivceImp().deleteTask(event.task);
+//        // print(result.)
+//         if (result is SuccessClass) {
+//           emit((SuccessTaskCreationState()));
+          
+//         } else {
+//           emit(ErrorState(message: ''));
+//         }
+//       },
+//     );
+
+
+//   }
+// }
+
+
+
+
+
+
 
 
 

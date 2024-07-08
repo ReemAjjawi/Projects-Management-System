@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_managment_state_managment_bloc/model/auth/register_model.dart';
 import 'package:project_managment_state_managment_bloc/model/projects/projects_fetched_modelmodel.dart';
 import 'package:project_managment_state_managment_bloc/service/project_service.dart';
 import '../../../model/handling/handle_model.dart';

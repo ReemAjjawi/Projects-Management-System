@@ -16,9 +16,7 @@ class ProjectInformationModel extends ResultModel{
     String description;
     String status;
     DateTime createDate;
-    DateTime lastModified;
     String createdBy;
-    String lastModifiedBy;
 
     ProjectInformationModel({
         required this.id,
@@ -26,9 +24,7 @@ class ProjectInformationModel extends ResultModel{
         required this.description,
         required this.status,
         required this.createDate,
-        required this.lastModified,
         required this.createdBy,
-        required this.lastModifiedBy,
     });
 
     factory ProjectInformationModel.fromJson(Map<String, dynamic> json) => ProjectInformationModel(
@@ -37,9 +33,7 @@ class ProjectInformationModel extends ResultModel{
         description: json["description"],
         status: json["status"],
         createDate: DateTime.parse(json["createDate"]),
-        lastModified: DateTime.parse(json["lastModified"]),
         createdBy: json["createdBy"],
-        lastModifiedBy: json["lastModifiedBy"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -48,8 +42,6 @@ class ProjectInformationModel extends ResultModel{
         "description": description,
         "status": status,
         "createDate": createDate.toIso8601String(),
-        "lastModified": lastModified.toIso8601String(),
         "createdBy": createdBy,
-        "lastModifiedBy": lastModifiedBy,
     };
 }
