@@ -1,9 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:project_managment_state_managment_bloc/model/tasks/featch_tasks.dart';
-
 import '../core/config/header_config.dart';
 import '../model/handling/handle_model.dart';
-import '../model/projects/projects_information_model_for_fetch_project.dart';
 import '../url/api.dart';
 import 'core_service.dart';
 
@@ -21,18 +19,9 @@ class FeatchTasksSerivceImp extends FeatchTasksSerivce {
         baseUrl + Api.getTasksApi + "3816",
         options: HeaderConfig.getHeader(useToken: true),
       );
-
-      // print(core.get<SharedPreferences>().getString(
-      //   'token',)
-      // );
-
       print(response.statusCode);
-
-      print("iammmmmmmmmmm in taskkkkkkkkkkk service ");
-
       print(response.data);
       if (response.statusCode == 200) {
-        print("listttttttttttttt offfffffffffff");
         return ListOf<FeatchTasksModel>(
           dataList: List.generate(
             response.data.length,

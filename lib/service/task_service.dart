@@ -17,7 +17,7 @@ class TaskSerivceImp extends TaskSerivce {
   @override
   Future<ResultModel> createTask(List<TaskModel> obj) async {
     print("response.statusCode");
-    final String data = taskModelToJson(obj);
+    //final String data = taskModelToJson(obj);
     List<Map<String, dynamic>> ab = obj.map((e) => e.toJson()).toList();
 
     try {
@@ -25,13 +25,13 @@ class TaskSerivceImp extends TaskSerivce {
       print(obj);
       print(taskModelToJson(obj));
       response = await dio.post(
+
         baseUrl + Api.createTasksApi,
         data: ab,
         options: HeaderConfig.getHeader(useToken: true),
       );
       print(response.statusCode);
-      if (response.statusCode == 203) {
-        print(response.data);
+      if (response.statusCode == 203) {        print(response.data);
 
         return SuccessClass(message: '');
       } else if (response.statusCode == 200) {
